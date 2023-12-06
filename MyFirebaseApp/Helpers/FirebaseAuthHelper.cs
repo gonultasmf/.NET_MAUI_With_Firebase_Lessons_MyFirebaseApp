@@ -29,6 +29,20 @@ public class FirebaseAuthHelper
         {
             return ex.Message;
         }
-        
+    }
+
+    public async Task<string?>? Login(string email, string password)
+    {
+        try
+        {
+            var response = await client.SignInWithEmailAndPasswordAsync(email, password);
+            var userInfo = response?.User?.Info;
+
+            return $"{userInfo?.DisplayName} - {userInfo?.Email}";
+        }
+        catch (Exception ex)
+        {
+            return ex.Message;
+        }
     }
 }

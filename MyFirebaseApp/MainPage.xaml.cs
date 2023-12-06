@@ -4,6 +4,8 @@ namespace MyFirebaseApp;
 
 public partial class MainPage : ContentPage
 {
+    FirebaseAuthHelper helper = new FirebaseAuthHelper();
+
     public MainPage()
     {
         InitializeComponent();
@@ -11,10 +13,15 @@ public partial class MainPage : ContentPage
 
     private async void OnCounterClicked(object sender, EventArgs e)
     {
-        FirebaseAuthHelper helper = new FirebaseAuthHelper();
+        var response = await helper.Create("M", "deneme@gmail.com", "deneme123");
 
-        var auth = await helper.Create("MAUI User Name", "deneme@gmail.com", "d");
+        await App.Current.MainPage.DisplayAlert("Firebase Info", response?.GetStatusMessage(), "OK");
+    }
 
-        await App.Current.MainPage.DisplayAlert("Firebase Info", auth?.GetStatusMessage(), "OK");
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+        var response = await helper.Login("deneme@gmail.com", "deneme123");
+
+        await App.Current.MainPage.DisplayAlert("Firebase Info", response?.GetStatusMessage(), "OK");
     }
 }
