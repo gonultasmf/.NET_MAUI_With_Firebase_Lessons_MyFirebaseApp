@@ -34,6 +34,18 @@
                 HorizontalOptions="Fill"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Text="LOGIN" />
+
+            <Button
+                Clicked="Button_Clicked_1"
+                HorizontalOptions="Fill"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Text="CHANGE PASS" />
+
+            <Button
+                Clicked="Button_Clicked_2"
+                HorizontalOptions="Fill"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Text="CHANGE DISPLAYNAME" />
         </VerticalStackLayout>
     </ScrollView>
 

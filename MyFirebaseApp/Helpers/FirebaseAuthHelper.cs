@@ -45,4 +45,34 @@ public class FirebaseAuthHelper
             return ex.Message;
         }
     }
+
+    public async Task<string?>? ChangePassword(string email, string password, string newPassword)
+    {
+        try
+        {
+            var response = await client.SignInWithEmailAndPasswordAsync(email, password);
+            await response?.User?.ChangePasswordAsync(newPassword);
+
+            return $"Başarılı!";
+        }
+        catch (Exception ex)
+        {
+            return ex.Message;
+        }
+    }
+
+    public async Task<string?>? ChangeDisplayName(string email, string password, string newDisplayName)
+    {
+        try
+        {
+            var response = await client.SignInWithEmailAndPasswordAsync(email, password);
+            await response?.User?.ChangeDisplayNameAsync(newDisplayName);
+
+            return $"Başarılı!";
+        }
+        catch (Exception ex)
+        {
+            return ex.Message;
+        }
+    }
 }
