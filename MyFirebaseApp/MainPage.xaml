@@ -7,17 +7,20 @@
     <ScrollView>
         <VerticalStackLayout Padding="30,0" Spacing="25">
             <Image
+                x:Name="logo"
                 Aspect="AspectFit"
                 HeightRequest="185"
                 SemanticProperties.Description="dot net bot in a race car number eight"
                 Source="dotnet_bot.png" />
 
             <Label
+                x:Name="txtName"
                 SemanticProperties.HeadingLevel="Level1"
                 Style="{StaticResource Headline}"
                 Text="Hello, World!" />
 
             <Label
+                x:Name="txtColor"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 SemanticProperties.HeadingLevel="Level2"
                 Style="{StaticResource SubHeadline}"
@@ -46,6 +49,12 @@
                 HorizontalOptions="Fill"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Text="CHANGE DISPLAYNAME" />
+
+            <Button
+                Clicked="Button_Clicked_3"
+                HorizontalOptions="Fill"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Text="UPLOAD IMAGE" />
         </VerticalStackLayout>
     </ScrollView>
 
